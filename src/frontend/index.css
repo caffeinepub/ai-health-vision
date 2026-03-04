@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   AI Health Vision – Design Tokens (OKLCH)
+   Primary: Deep Medical Teal/Blue
+   ============================================================ */
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans[wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces[SOFT,WONK,opsz,wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* Core palette – Medical Teal Blue */
+    --background: 0.985 0.004 220;
+    --foreground: 0.15 0.025 240;
+    --card: 1 0 0;
+    --card-foreground: 0.15 0.025 240;
+    --popover: 1 0 0;
+    --popover-foreground: 0.15 0.025 240;
+
+    /* Primary: deep medical teal */
+    --primary: 0.42 0.13 220;
+    --primary-foreground: 0.98 0.005 220;
+
+    /* Secondary: soft teal */
+    --secondary: 0.92 0.03 220;
+    --secondary-foreground: 0.28 0.08 220;
+
+    /* Muted */
+    --muted: 0.95 0.015 220;
+    --muted-foreground: 0.52 0.04 220;
+
+    /* Accent: bright medical cyan */
+    --accent: 0.88 0.06 210;
+    --accent-foreground: 0.25 0.09 220;
+
+    /* Destructive: medical red */
+    --destructive: 0.52 0.22 22;
+    --destructive-foreground: 0.98 0 0;
+
+    /* Borders / inputs */
+    --border: 0.88 0.02 220;
+    --input: 0.91 0.02 220;
+    --ring: 0.42 0.13 220;
+
+    /* Semantic severities */
+    --severity-low: 0.65 0.18 145;
+    --severity-medium: 0.72 0.19 72;
+    --severity-high: 0.68 0.2 45;
+    --severity-emergency: 0.52 0.22 22;
+
+    /* Charts */
+    --chart-1: 0.55 0.18 220;
+    --chart-2: 0.65 0.18 145;
+    --chart-3: 0.72 0.19 72;
+    --chart-4: 0.52 0.22 22;
+    --chart-5: 0.68 0.2 45;
+
+    /* Sidebar */
+    --sidebar: 0.18 0.04 230;
+    --sidebar-foreground: 0.88 0.025 215;
+    --sidebar-primary: 0.72 0.18 205;
+    --sidebar-primary-foreground: 0.12 0.03 220;
+    --sidebar-accent: 0.26 0.06 228;
+    --sidebar-accent-foreground: 0.92 0.025 215;
+    --sidebar-border: 0.28 0.06 228;
+    --sidebar-ring: 0.72 0.18 205;
+
+    /* Surface elevations */
+    --surface-1: 0.98 0.005 220;
+    --surface-2: 0.95 0.01 220;
+    --surface-3: 0.91 0.02 220;
+  }
+
+  .dark {
+    --background: 0.11 0.025 230;
+    --foreground: 0.95 0.01 215;
+    --card: 0.15 0.03 228;
+    --card-foreground: 0.95 0.01 215;
+    --popover: 0.18 0.04 228;
+    --popover-foreground: 0.95 0.01 215;
+    --primary: 0.72 0.18 205;
+    --primary-foreground: 0.1 0.02 220;
+    --secondary: 0.22 0.05 228;
+    --secondary-foreground: 0.88 0.025 215;
+    --muted: 0.2 0.04 228;
+    --muted-foreground: 0.62 0.04 215;
+    --accent: 0.26 0.07 228;
+    --accent-foreground: 0.88 0.025 215;
+    --destructive: 0.62 0.22 22;
+    --destructive-foreground: 0.98 0 0;
+    --border: 1 0 0 / 12%;
+    --input: 1 0 0 / 15%;
+    --ring: 0.72 0.18 205;
+    --sidebar: 0.12 0.03 228;
+    --sidebar-foreground: 0.88 0.025 215;
+    --sidebar-primary: 0.72 0.18 205;
+    --sidebar-primary-foreground: 0.1 0.02 220;
+    --sidebar-accent: 0.18 0.04 228;
+    --sidebar-accent-foreground: 0.88 0.025 215;
+    --sidebar-border: 1 0 0 / 10%;
+    --sidebar-ring: 0.72 0.18 205;
+
+    /* Semantic severities – brighter in dark */
+    --severity-low: 0.72 0.2 145;
+    --severity-medium: 0.78 0.2 72;
+    --severity-high: 0.75 0.22 45;
+    --severity-emergency: 0.62 0.22 22;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  html {
+    color-scheme: light;
+  }
+}
+
+@layer utilities {
+  .severity-low {
+    background-color: oklch(var(--severity-low) / 0.12);
+    color: oklch(var(--severity-low));
+    border-color: oklch(var(--severity-low) / 0.3);
+  }
+  .severity-medium {
+    background-color: oklch(var(--severity-medium) / 0.12);
+    color: oklch(var(--severity-medium));
+    border-color: oklch(var(--severity-medium) / 0.3);
+  }
+  .severity-high {
+    background-color: oklch(var(--severity-high) / 0.12);
+    color: oklch(var(--severity-high));
+    border-color: oklch(var(--severity-high) / 0.3);
+  }
+  .severity-emergency {
+    background-color: oklch(var(--severity-emergency) / 0.15);
+    color: oklch(var(--severity-emergency));
+    border-color: oklch(var(--severity-emergency) / 0.4);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+
+  .medical-gradient {
+    background: linear-gradient(
+      135deg,
+      oklch(0.42 0.13 220) 0%,
+      oklch(0.55 0.15 210) 50%,
+      oklch(0.48 0.12 230) 100%
+    );
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Print styles for report */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .print-container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+}
